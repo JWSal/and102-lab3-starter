@@ -1,5 +1,6 @@
 package com.codepath.nationalparks
 
+import android.media.Image
 import com.google.gson.annotations.SerializedName
 
 /**
@@ -25,8 +26,14 @@ class NationalPark {
     @SerializedName("states")
     var location: String? = null
 
-    //TODO parkImageUrl
+    @SerializedName("images")
+    var images: List<Image>? = null
 
+    val imageUrl: String? get() = images?.firstOrNull()?.url
 
-    //TODO-STRETCH-GOALS
+    class Image{
+        @SerializedName("url")
+        var url: String? = null
+    }
+
 }
